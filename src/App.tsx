@@ -1,6 +1,10 @@
 
 // import './App.css'
 
+// db user duongminhloc201 - pPGhEl7N8a8u75jc
+// mongodb+srv://duongminhloc201:pPGhEl7N8a8u75jc@cluster0.iunw5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+import { useState } from "react";
 import InputTodo from "./todo/input.todo"
 
 function App() {
@@ -12,7 +16,7 @@ function App() {
     address: "Home"
   }
 
-  const todos = ["todo 1", "todo 2", "todo 3"];
+  const [listTodo, setListTodo] = useState(["todo 1", "todo 2", "todo 3"])
 
   return (
     <div>
@@ -20,16 +24,15 @@ function App() {
         name={name}
         age={age}
         info={info}
+        listTodo={listTodo}
+        setListTodo={setListTodo}
       />
-
       <ul>
-        {
-          todos.map((item, idx) => {
-            return (
-              <li key={idx}>{item}</li>
-            )
-          })
-        }
+        {listTodo.map((item, idx) => {
+          return (
+            <li key={idx}>{item}</li>
+          )
+        })}
       </ul>
     </div>
   )
